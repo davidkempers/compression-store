@@ -1,0 +1,21 @@
+  db:
+    image: mongo
+  web:
+    build: .
+    volumes:
+      - ".:/src"
+    ports:
+      - "3000:3000"
+      - "35729:35729"
+    links:
+      - "db:database"
+    environment:
+      - DATABASEHOST
+      - DATABASEPORT
+      - DATABASENAME
+      - STORAGEPROVIDER
+      - STORAGEPATH
+      - AWSREGION
+      - AWSCONTAINER
+      - AWSACCESSKEY
+      - AWSSECRETKEY

@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+
+    <p><a href="/">« Back</a></p>
+    <p>Files uploaded</p>
+
+    {% for file in files %}
+    <div>{{ file.originalname }}</div>
+    {% endfor %}
+
+    <p></p>
+    <p>Duplicate files uploaded</p>
+
+    {% for file in duplicates %}
+    <div>{{ file.originalname }}</div>
+    {% endfor %}
+  </div>
+
+{% endblock %}

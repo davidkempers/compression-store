@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+
+    <p><a href="/">« Back</a></p>
+    <p>Click <a href="/download?id={{ download._id.toString() }}">here</a> to download</p>
+    <p>Files in this bundle</p>
+        {% for file in download.files%}
+        <div>{{ file }}</div>
+        {% endfor %}
+  </div>
+
+{% endblock %}

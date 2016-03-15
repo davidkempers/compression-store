@@ -1,0 +1,49 @@
+{
+  "name": "compression-store",
+  "version": "0.1.0",
+  "description": "Store and dynamically deliver compressed files",
+  "homepage": "https://github.com/davidkempers/compression-store",
+  "author": {
+    "name": "David Kempers"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidkempers/compression-store.git"
+  },
+  "bugs": {
+    "url": "https://github.com/davidkempers/compression-store/issues"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "gulp --gulpfile gulpfile.js"
+  },
+  "dependencies": {
+    "archiver": "^0.21.0",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.0.0",
+    "deep-defaults": "^1.0.4",
+    "express": "~4.13.1",
+    "hjs": "~0.0.6",
+    "mongodb": "^1.4.40",
+    "monk": "^1.0.1",
+    "morgan": "~1.6.1",
+    "multer": "git+https://github.com/davidkempers/multer.git#develop",
+    "nano": "^6.2.0",
+    "pkgcloud": "git+https://github.com/davidkempers/pkgcloud.git",
+    "request": "latest",
+    "serve-favicon": "~2.3.0",
+    "swig": "latest",
+    "tar.gz": "^1.0.3",
+    "compress-commons": "git+https://github.com/davidkempers/node-compress-commons.git#develop",
+    "zip-stream": "git+https://github.com/davidkempers/node-zip-stream.git#develop"
+  },
+  "devDependencies": {
+    "gulp": "~3.8.8",
+    "gulp-nodemon": "~1.0.4",
+    "gulp-watch": "~1.1.0",
+    "gulp-plumber": "~0.6.6",
+    "gulp-livereload": "~2.1.1"
+  }
+}

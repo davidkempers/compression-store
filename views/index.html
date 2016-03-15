@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+  <style>
+  label {
+    font-weight: 500;
+  }
+  </style>
+
+  <div class="container">
+
+    <p> Select file to upload:</p>
+    <form action="upload" method="post" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-md-8"><input id="file" class="" type="file" name="fileToUpload" id="fileToUpload" multiple></div>
+        <div class="col-md-4"><input type="submit" value="Upload" name="submit"></div>
+      </div>
+
+
+    </form>
+    <br>
+    <p>Select files to download:</p>
+    <form action="download" method="post">
+
+        <input type="submit", value="Download">
+        <p></p>
+        <table class="table table-striped">
+          <tbody>
+          {% for file in files %}
+            <tr>
+              <td>
+                <label><input type="checkbox" name="file" value="{{ file.originalname }}"> {{ file.originalname }}</label>
+            </td>
+          </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </form>
+  </div>
+
+{% endblock %}
