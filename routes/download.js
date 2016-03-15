@@ -24,13 +24,18 @@ function getDownload(id, options, cb) {
   });
 }
 
-function createArchive(files, options, cb) {
-  files = [].concat(files);
-  var archiveOpts = options;
+function getFiles(files, cb) {
+  var ObjectID = require('mongodb').ObjectID;
+  files = [].concat(files).map(function (item){
+    return ObjectID(item);
+  });
   var collection = db.get('files');
-  collection.find({
-      "originalname": { "$in": files }
-    },{},function(e,files) {
+  collection.find({_id: { $in: files }}, cb);
+}
+
+function createArchive(files, options, cb) {
+  var archiveOpts = options;
+  getFiles(files, function(e,files) {
 
       if (e) {return cb(e);}
       var archive = archiver('zip', archiveOpts);
@@ -115,7 +120,13 @@ router.post('/', function(req, res) {
     if (err) {
       res.json(err);
     } else {
-      res.render('download', {download:doc});
+      var download_id = doc._id;
+      getFiles(files, function(e, files) {
+        res.render('download', {
+          download_id: download_id,
+          files:files
+        });
+      });
     }
   });
 });

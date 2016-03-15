@@ -32,7 +32,7 @@
           {% for file in files %}
             <tr>
               <td>
-                <label><input type="checkbox" name="file" value="{{ file.originalname }}"> {{ file.originalname }}</label>
+                <label><input type="checkbox" name="file" value="{{ file._id.toString() }}"> {{ file.originalname }}</label>
             </td>
           </tr>
           {% endfor %}

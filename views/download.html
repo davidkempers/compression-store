@@ -8,10 +8,10 @@
   <div class="container">
 
     <p><a href="/">« Back</a></p>
-    <p>Click <a href="/download?id={{ download._id.toString() }}">here</a> to download</p>
+    <p>Click <a href="/download?id={{ download_id.toString() }}">here</a> to download</p>
     <p>Files in this bundle</p>
-        {% for file in download.files%}
-        <div>{{ file }}</div>
+        {% for file in files%}
+        <div>{{ file.originalname }}</div>
         {% endfor %}
   </div>
 
